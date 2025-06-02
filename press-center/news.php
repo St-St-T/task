@@ -1,7 +1,22 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("TITLE", "Пресс-центр");
 $APPLICATION->SetTitle("Новости");
-?><?$APPLICATION->IncludeComponent(
+?><section class="page-section events-page">
+        <div class="page-section__heading">
+            <h1>Новости</h1>
+        </div>
+        <div data-controller="tabs" class="tabs">
+            <div class="tabs__buttons-scroll-wrapper">
+                <div class="tabs__buttons-wrapper">
+                    <button data-tabs-target="button" data-controller="wave" class="tabs__button active">
+                        <span class="tabs__button-text"> Все </span>
+                    </button>
+                </div>
+            </div>
+            <div class="tabs__content-wrapper">
+                <div data-tabs-target="wrapper" id="all" class="tabs__content" data-controller="view-more">
+<?$APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"template1",
 	Array(
@@ -53,7 +68,7 @@ $APPLICATION->SetTitle("Новости");
 		"PAGER_TEMPLATE" => ".default",
 		"PAGER_TITLE" => "Новости",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"SEF_FOLDER" => "/press-center/news/",
+		"SEF_FOLDER" => "/press-center/",
 		"SEF_MODE" => "Y",
 		"SEF_URL_TEMPLATES" => array("news"=>"","section"=>"","detail"=>"#ELEMENT_ID#/",),
 		"SET_LAST_MODIFIED" => "N",
@@ -74,4 +89,4 @@ $APPLICATION->SetTitle("Новости");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -2,7 +2,7 @@
 $aMenuLinks = Array(
 	Array(
 		"Новости", 
-		"/news/news/", 
+		"/press-center/news.php", 
 		Array(), 
 		Array(), 
 		"" 

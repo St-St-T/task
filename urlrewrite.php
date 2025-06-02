@@ -16,6 +16,14 @@ $arUrlRewrite=array (
     'PATH' => '/press-center/news/index.php',
     'SORT' => 100,
   ),
+  4 => 
+  array (
+    'CONDITION' => '#^/press-center/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/press-center/news.php',
+    'SORT' => 100,
+  ),
   2 => 
   array (
     'CONDITION' => '#^/news/news/#',

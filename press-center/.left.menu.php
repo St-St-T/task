@@ -6,6 +6,34 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
-	)
+	),
+    Array(
+        "Мероприятия",
+        "/index.php",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Фото и видео",
+        "/index.php",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Доклады",
+        "/index.php",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Пресс-служба",
+        "/index.php",
+        Array(),
+        Array(),
+        ""
+    )
 );
 ?>

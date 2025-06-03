@@ -1,15 +1,8 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Правительство ЯНАО", 
-		"/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Пресс-центр", 
-		"/press-center/", 
+		"/press-center/",
 		Array(), 
 		Array(), 
 		"" 

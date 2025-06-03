@@ -3,20 +3,20 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("TITLE", "Пресс-центр");
 $APPLICATION->SetTitle("Новости");
 ?><section class="page-section events-page">
-        <div class="page-section__heading">
-            <h1>Новости</h1>
-        </div>
-        <div data-controller="tabs" class="tabs">
-            <div class="tabs__buttons-scroll-wrapper">
-                <div class="tabs__buttons-wrapper">
-                    <button data-tabs-target="button" data-controller="wave" class="tabs__button active">
-                        <span class="tabs__button-text"> Все </span>
-                    </button>
-                </div>
-            </div>
-            <div class="tabs__content-wrapper">
-                <div data-tabs-target="wrapper" id="all" class="tabs__content" data-controller="view-more">
-<?$APPLICATION->IncludeComponent(
+    <? if(basename($_SERVER['PHP_SELF']) == 'news.php'):?>
+<div class="page-section__heading">
+	<h1>Новости</h1>
+</div>
+<div data-controller="tabs" class="tabs">
+	<div class="tabs__buttons-scroll-wrapper">
+		<div class="tabs__buttons-wrapper">
+ <button data-tabs-target="button" data-controller="wave" class="tabs__button active"> <span class="tabs__button-text"> Все </span> </button>
+		</div>
+	</div>
+	<div class="tabs__content-wrapper">
+		<div data-tabs-target="wrapper" id="all" class="tabs__content" data-controller="view-more">
+    <? endif;?>
+			 <?$APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"template1",
 	Array(
@@ -33,15 +33,14 @@ $APPLICATION->SetTitle("Новости");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"COMPONENT_TEMPLATE" => "template1",
 		"DETAIL_ACTIVE_DATE_FORMAT" => "j F Y",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
-		"DETAIL_FIELD_CODE" => array(0=>"",1=>"",),
+		"DETAIL_FIELD_CODE" => array("",""),
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
-		"DETAIL_PROPERTY_CODE" => array(0=>"",1=>"",),
+		"DETAIL_PROPERTY_CODE" => array("MAIN","PLACE","THEMES",""),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "Y",
@@ -54,8 +53,8 @@ $APPLICATION->SetTitle("Новости");
 		"IBLOCK_TYPE" => "newstype",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"LIST_ACTIVE_DATE_FORMAT" => "j F Y",
-		"LIST_FIELD_CODE" => array(0=>"",1=>"",),
-		"LIST_PROPERTY_CODE" => array(0=>"",1=>"",),
+		"LIST_FIELD_CODE" => array("",""),
+		"LIST_PROPERTY_CODE" => array("MAIN","PLACE","THEMES",""),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
@@ -70,7 +69,7 @@ $APPLICATION->SetTitle("Новости");
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"SEF_FOLDER" => "/press-center/",
 		"SEF_MODE" => "Y",
-		"SEF_URL_TEMPLATES" => array("news"=>"","section"=>"","detail"=>"#ELEMENT_ID#/",),
+		"SEF_URL_TEMPLATES" => Array("detail"=>"#ELEMENT_ID#/","news"=>"","section"=>""),
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
@@ -89,4 +88,8 @@ $APPLICATION->SetTitle("Новости");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N"
 	)
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><br>
+		</div>
+	</div>
+</div>
+ </section><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

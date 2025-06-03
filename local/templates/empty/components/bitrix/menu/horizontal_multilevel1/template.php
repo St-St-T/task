@@ -1,7 +1,20 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 
 <? if (!empty($arResult)): ?>
-	<ul id="horizontal-multilevel-menu">
+    <div data-controller="sticky-bar site-menu mobile-menu site-menu-modal" class="site-menu site-menu--sticky">
+    <div data-site-menu-target="overlay" class="site-menu__overlay"></div>
+    <div class="site-menu__wrapper">
+    <a class="site-menu__logotype" href="/">
+        <svg class="site-menu__logotype-symbol-mobile" role="img">
+            <use xlink:href="icons.svg#logotype-symbol-mobile" />
+        </svg>
+        <svg class="site-menu__logotype-symbol-desktop" role="img">
+            <use xlink:href="icons.svg#logotype-symbol-desktop" />
+        </svg>
+        <span class="site-menu__logotype-text"> Правительство ЯНАО </span>
+    </a>
+    <nav class="site-menu__links-wrapper">
+	<ul class="site-menu__links" data-site-menu-target="menu">
 
 		<?
 		$previousLevel = 0;
@@ -14,11 +27,17 @@
 			<? if ($arItem["IS_PARENT"]): ?>
 
 				<? if ($arItem["DEPTH_LEVEL"] == 1): ?>
-					<li><a href="<?= $arItem["LINK"] ?>" class="<? if ($arItem["SELECTED"]): ?>root-item-selected<? else: ?>root-item<? endif ?>"><?= $arItem["TEXT"] ?></a>
-						<ul>
+					<li class="site-menu__link-item"><a href="<?= $arItem["LINK"] ?>" data-site-menu-target="link" class="site-menu__link"><?= $arItem["TEXT"] ?></a>
+                        <div id="submenu-0" class="site-submenu" data-site-menu-target="submenu" data-turbo-permanent>
+                            <div class="site-submenu__wrapper">
+                                <div class="site-submenu__column">
+                                    <ul class="links-list links-list--menu">
 						<? else: ?>
-							<li<? if ($arItem["SELECTED"]): ?> class="item-selected" <? endif ?>><a href="<?= $arItem["LINK"] ?>" class="parent"><?= $arItem["TEXT"] ?></a>
-								<ul>
+							<li class="site-menu__link-item"><a href="<?= $arItem["LINK"] ?>" data-site-menu-target="link" class="site-menu__link"><?= $arItem["TEXT"] ?></a>
+                                <div id="submenu-0" class="site-submenu" data-site-menu-target="submenu" data-turbo-permanent>
+                                    <div class="site-submenu__wrapper">
+                                        <div class="site-submenu__column">
+                                            <ul class="links-list links-list--menu">
 								<? endif ?>
 
 							<? else: ?>
@@ -26,18 +45,18 @@
 								<? if ($arItem["PERMISSION"] > "D"): ?>
 
 									<? if ($arItem["DEPTH_LEVEL"] == 1): ?>
-										<li><a href="<?= $arItem["LINK"] ?>" class="<? if ($arItem["SELECTED"]): ?>root-item-selected<? else: ?>root-item<? endif ?>"><?= $arItem["TEXT"] ?></a></li>
+										<li class="links-list__item"><a href="<?= $arItem["LINK"] ?>" class="links-list__link"><?= $arItem["TEXT"] ?></a></li>
 									<? else: ?>
-										<li<? if ($arItem["SELECTED"]): ?> class="item-selected" <? endif ?>><a href="<?= $arItem["LINK"] ?>"><?= $arItem["TEXT"] ?></a>
+										<li class="links-list__item"><a href="<?= $arItem["LINK"] ?>" class="links-list__link"><?= $arItem["TEXT"] ?></a>
 					</li>
 				<? endif ?>
 
 			<? else: ?>
 
 				<? if ($arItem["DEPTH_LEVEL"] == 1): ?>
-					<li><a href="" class="<? if ($arItem["SELECTED"]): ?>root-item-selected<? else: ?>root-item<? endif ?>" title="<?= GetMessage("MENU_ITEM_ACCESS_DENIED") ?>"><?= $arItem["TEXT"] ?></a></li>
+					<li class="links-list__item"><a href="" class="links-list__link" title="<?= GetMessage("MENU_ITEM_ACCESS_DENIED") ?>"><?= $arItem["TEXT"] ?></a></li>
 				<? else: ?>
-					<li><a href="" class="denied" title="<?= GetMessage("MENU_ITEM_ACCESS_DENIED") ?>"><?= $arItem["TEXT"] ?></a></li>
+					<li class="links-list__item"><a href="" class="links-list__link denied" title="<?= GetMessage("MENU_ITEM_ACCESS_DENIED") ?>"><?= $arItem["TEXT"] ?></a></li>
 				<? endif ?>
 
 			<? endif ?>

@@ -6,10 +6,10 @@
     <div class="site-menu__wrapper">
     <a class="site-menu__logotype" href="/">
         <svg class="site-menu__logotype-symbol-mobile" role="img">
-            <use xlink:href="icons.svg#logotype-symbol-mobile" />
+            <use xlink:href="/icons.svg#logotype-symbol-mobile" />
         </svg>
         <svg class="site-menu__logotype-symbol-desktop" role="img">
-            <use xlink:href="icons.svg#logotype-symbol-desktop" />
+            <use xlink:href="/icons.svg#logotype-symbol-desktop" />
         </svg>
         <span class="site-menu__logotype-text"> Правительство ЯНАО </span>
     </a>
@@ -36,7 +36,7 @@
 							<li class="site-menu__link-item"><a href="<?= $arItem["LINK"] ?>" data-site-menu-target="link" class="site-menu__link"><?= $arItem["TEXT"] ?></a>
                                 <div id="submenu-0" class="site-submenu" data-site-menu-target="submenu" data-turbo-permanent>
                                     <div class="site-submenu__wrapper">
-                                        <div class="site-submenu__column">
+                                        <nav class="site-submenu__column">
                                             <ul class="links-list links-list--menu">
 								<? endif ?>
 
@@ -73,5 +73,8 @@
 	<? endif ?>
 
 	</ul>
+    </nav>
+    </div>
+    </div>
 	<div class="menu-clear-left"></div>
 <? endif ?>

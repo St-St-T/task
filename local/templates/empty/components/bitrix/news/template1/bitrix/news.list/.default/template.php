@@ -78,13 +78,31 @@ $this->setFrameMode(true);
 				</div>
 			<? endif ?>
 
-			<div class="news__publication-detail">
-				<svg class="icon" role="img">
-					<use xlink:href="/icons.svg#pin" />
-				</svg>
-				Приём заявок до 31 июля 2021
-			</div>
+			<? if ($arItem["DISPLAY_PROPERTIES"]["PLACE"]["DISPLAY_VALUE"] != "" && $arMain["DISPLAY_ACTIVE_FROM"]): ?>
+				<div class="news__publication-detail">
+					<svg class="icon" role="img">
+						<use xlink:href="/icons.svg#pin" />
+					</svg>
+					<?= $$arItem["DISPLAY_PROPERTIES"]["PLACE"]["DISPLAY_VALUE"]; ?>
+				</div>
+			<? endif ?>
 
+			<? foreach ($arItem["DISPLAY_PROPERTIES"] as $pid => $arProperty): ?>
+				<? if ($arProperty["CODE"] == "PLACE"): ?>
+					<div class="news__publication-detail">
+						<svg class="icon" role="img">
+							<use xlink:href="/icons.svg#pin" />
+						</svg>
+						<?= $arProperty["DISPLAY_VALUE"]; ?>
+					</div>
+				<? endif ?>
+			<? endforeach; ?>
+
+			<? foreach ($arItem["DISPLAY_PROPERTIES"] as $pid => $arProperty): ?>
+				<? if ($arProperty["CODE"] == "MAIN" && $arProperty["ID"] == 2): ?>
+					<?= $arProperty["ID"]; ?>
+				<? endif ?>
+			<? endforeach; ?>
 
 
 			<? if ($arParams["DISPLAY_PICTURE"] != "N" && is_array($arItem["PREVIEW_PICTURE"])): ?>
@@ -93,16 +111,6 @@ $this->setFrameMode(true);
 			<? foreach ($arItem["FIELDS"] as $code => $value): ?>
 				<small>
 					<?= GetMessage("IBLOCK_FIELD_" . $code) ?>:&nbsp;<?= $value; ?>
-				</small><br />
-			<? endforeach; ?>
-			<? foreach ($arItem["DISPLAY_PROPERTIES"] as $pid => $arProperty): ?>
-				<small>
-					<?= $arProperty["NAME"] ?>:&nbsp;
-					<? if (is_array($arProperty["DISPLAY_VALUE"])): ?>
-						<?= implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]); ?>
-					<? else: ?>
-						<?= $arProperty["DISPLAY_VALUE"]; ?>
-					<? endif ?>
 				</small><br />
 			<? endforeach; ?>
 

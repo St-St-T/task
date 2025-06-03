@@ -30,49 +30,19 @@ $asset->addJs(SITE_TEMPLATE_PATH . "/scripts/662.js");
 
 	<div class="page">
 		<div data-controller="gos-header-modal" class="gos-header"></div>
-		<div data-controller="sticky-bar site-menu mobile-menu site-menu-modal" class="site-menu site-menu--sticky">
-			<div data-site-menu-target="overlay" class="site-menu__overlay"></div>
-			<div class="site-menu__wrapper">
-				<a class="site-menu__logotype" href="/">
-					<svg class="site-menu__logotype-symbol-mobile" role="img">
-						<use xlink:href="icons.svg#logotype-symbol-mobile" />
-					</svg>
-					<svg class="site-menu__logotype-symbol-desktop" role="img">
-						<use xlink:href="icons.svg#logotype-symbol-desktop" />
-					</svg>
-					<span class="site-menu__logotype-text"> Правительство ЯНАО </span>
-				</a>
-				<nav class="site-menu__links-wrapper">
-					<ul class="site-menu__links" data-site-menu-target="menu">
-						<li class="site-menu__link-item">
-							<a data-site-menu-target="link" class="site-menu__link" href="/">
-								Пресс-центр
-							</a>
-							<div id="submenu-0" class="site-submenu" data-site-menu-target="submenu" data-turbo-permanent>
-								<div class="site-submenu__wrapper">
-									<div class="site-submenu__column">
-										<ul class="links-list links-list--menu">
-											<li class="links-list__item">
-												<a class="links-list__link" href="/news">Новости</a>
-											</li>
-											<li class="links-list__item">
-												<a class="links-list__link" href="/events">Мероприятия</a>
-											</li>
-											<li class="links-list__item">
-												<a class="links-list__link" href="/media">Фото и&nbsp;видео</a>
-											</li>
-											<li class="links-list__item">
-												<a class="links-list__link" href="/report">Доклады</a>
-											</li>
-											<li class="links-list__item">
-												<a class="links-list__link" href="/press-service">Пресс-служба</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div>
+
+<?$APPLICATION->IncludeComponent("bitrix:menu", "horizontal_multilevel1", Array(
+    "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+    "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+    "DELAY" => "N",	// Откладывать выполнение шаблона меню
+    "MAX_LEVEL" => "2",	// Уровень вложенности меню
+    "MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+    "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+    "MENU_CACHE_TYPE" => "N",	// Тип кеширования
+    "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+    "ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
+    "USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+    "COMPONENT_TEMPLATE" => "horizontal_multilevel"
+),
+    false
+);?>

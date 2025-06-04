@@ -28,13 +28,13 @@ $this->setFrameMode(true);
                     </time>
                 <?endif;?>
 
-                <div class="article__publication-place">
                     <? foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-                        <?if ($arProperty["CODE"]=="PLACE"):?>
-                            <?=$arProperty["DISPLAY_VALUE"];?>
+                        <?if ($arProperty["CODE"]=="PLACE" && $arProperty["DISPLAY_VALUE"] != ""):?>
+                            <div class="article__publication-place">
+                                <?=$arProperty["DISPLAY_VALUE"];?>
+                            </div>
                         <?endif;?>
                     <?endforeach;?>
-                </div>
             </div>
         </div>
     </header>
@@ -52,7 +52,7 @@ $this->setFrameMode(true);
                     title="<?=$arResult["DETAIL_PICTURE"]["TITLE"]?>"
                 />
             <?endif;?>
-            <?if($arResult["DETAIL_TEXT"] <> ''):?>
+            <?if($arResult["DETAIL_TEXT"] != ""):?>
                 <p><?echo $arResult["DETAIL_TEXT"];?></p>
             <?else:?>
                 <p><?echo $arResult["PREVIEW_TEXT"];?></p>
@@ -108,13 +108,12 @@ $this->setFrameMode(true);
         </div>
     </div>
 
-    <div class="article__content-wrapper article__topics-wrapper">
-        <h3 class="article__topics-title">Темы</h3>
-        <ul class="article__topics">
-
             <? foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
                 <?if ($arProperty["CODE"]=="THEMES"):?>
                     <?if(is_array($arProperty["DISPLAY_VALUE"])):?>
+                        <div class="article__content-wrapper article__topics-wrapper">
+                            <h3 class="article__topics-title">Темы</h3>
+                            <ul class="article__topics">
                         <? foreach($arProperty["DISPLAY_VALUE"] as $pid1=>$arProperty1):?>
                             <li class="article__topic-item">
                                 <a
@@ -126,7 +125,10 @@ $this->setFrameMode(true);
                             </li>
                         <?endforeach;?>
 
-                    <?else:?>
+                    <?elseif ($arProperty["DISPLAY_VALUE"] != null):?>
+                        <div class="article__content-wrapper article__topics-wrapper">
+                            <h3 class="article__topics-title">Темы</h3>
+                            <ul class="article__topics">
                         <li class="article__topic-item">
                             <a
                                     href="/"

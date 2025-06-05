@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items iblockUid="TNEWS:news" exchangeVersion="2" >
+<item>
+ <field name="ACTIVE">
+  <value>Y</value>
+ </field>
+ <field name="ACTIVE_FROM">
+  <value>04.06.2025</value>
+ </field>
+ <field name="ACTIVE_TO"/>
+ <field name="SORT">
+  <value>500</value>
+ </field>
+ <field name="NAME">
+  <value>Новость 1</value>
+ </field>
+ <field name="PREVIEW_PICTURE"/>
+ <field name="PREVIEW_TEXT">
+  <value>Анонс</value>
+ </field>
+ <field name="PREVIEW_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="DETAIL_PICTURE"/>
+ <field name="DETAIL_TEXT">
+  <value>...................................................................................................................................................................................................................................................................................................................................................</value>
+ </field>
+ <field name="DETAIL_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="CODE">
+  <value>news1</value>
+ </field>
+ <field name="TAGS"/>
+ <field name="XML_ID">
+  <value>4</value>
+ </field>
+ <field name="IBLOCK_SECTION">
+  <value>Раздел второй|1|section2</value>
+ </field>
+ <field name="IPROPERTY_TEMPLATES"/>
+ <property name="THEMES">
+  <value>Тема 1</value>
+  <value>Тема 2</value>
+  <value>Тема 3</value>
+ </property>
+ <property name="MAIN">
+  <value>Y</value>
+ </property>
+ <property name="PLACE">
+  <value>Место</value>
+ </property>
+</item>
+<item>
+ <field name="ACTIVE">
+  <value>Y</value>
+ </field>
+ <field name="ACTIVE_FROM">
+  <value>04.06.2025</value>
+ </field>
+ <field name="ACTIVE_TO"/>
+ <field name="SORT">
+  <value>500</value>
+ </field>
+ <field name="NAME">
+  <value>Новость 2</value>
+ </field>
+ <field name="PREVIEW_PICTURE"/>
+ <field name="PREVIEW_TEXT">
+  <value>Анонс</value>
+ </field>
+ <field name="PREVIEW_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="DETAIL_PICTURE"/>
+ <field name="DETAIL_TEXT">
+  <value>Детальное описание новости 2.</value>
+ </field>
+ <field name="DETAIL_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="CODE">
+  <value>news2</value>
+ </field>
+ <field name="TAGS"/>
+ <field name="XML_ID">
+  <value>5</value>
+ </field>
+ <field name="IBLOCK_SECTION">
+  <value>Раздел первый|1|section1</value>
+ </field>
+ <field name="IPROPERTY_TEMPLATES"/>
+ <property name="THEMES">
+  <value>Детальное описание</value>
+  <value>Инфоблоки</value>
+  <value>Тест</value>
+  <value>Темы</value>
+ </property>
+ <property name="MAIN"/>
+ <property name="PLACE">
+  <value>Кемерово</value>
+ </property>
+</item>
+<item>
+ <field name="ACTIVE">
+  <value>Y</value>
+ </field>
+ <field name="ACTIVE_FROM">
+  <value>05.06.2025</value>
+ </field>
+ <field name="ACTIVE_TO"/>
+ <field name="SORT">
+  <value>500</value>
+ </field>
+ <field name="NAME">
+  <value>Новость 3</value>
+ </field>
+ <field name="PREVIEW_PICTURE"/>
+ <field name="PREVIEW_TEXT">
+  <value>Анонс/Описание</value>
+ </field>
+ <field name="PREVIEW_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="DETAIL_PICTURE"/>
+ <field name="DETAIL_TEXT">
+  <value>Новость без тем.</value>
+ </field>
+ <field name="DETAIL_TEXT_TYPE">
+  <value>text</value>
+ </field>
+ <field name="CODE">
+  <value>news3</value>
+ </field>
+ <field name="TAGS"/>
+ <field name="XML_ID">
+  <value>6</value>
+ </field>
+ <field name="IBLOCK_SECTION">
+  <value>Раздел второй|1|section2</value>
+ </field>
+ <field name="IPROPERTY_TEMPLATES"/>
+ <property name="THEMES"/>
+ <property name="MAIN"/>
+ <property name="PLACE"/>
+</item>
+
+</items>
